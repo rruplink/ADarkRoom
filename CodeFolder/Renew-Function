@@ -1,0 +1,13 @@
+void Renew()    //The most important piece of code in the whole program
+        {
+            txtSticks.Text = Convert.ToString(sticks);  //Renew makes sure that all of the text boxes
+            txtFood.Text = Convert.ToString(food);      //match the value of the variables they are supposed to express
+            txtStone.Text = Convert.ToString(stone);
+            txtIron.Text = Convert.ToString(iron);
+            txtFurs.Text = Convert.ToString(furs);
+            txtGold.Text = Convert.ToString(gold);
+            txtResidents.Text = Convert.ToString(residents);
+            txtTheFire.Text = Firestatusdeterminer();
+            txtCarts.Text = Convert.ToString(carts);
+            txtTraps.Text = Convert.ToString(traps);
+        }
