@@ -1,137 +1,67 @@
 using System;
-
 using System.Collections.Generic;
-
 using System.ComponentModel;
-
-using System.Data;
-
-using System.Drawing;
-
-using System.Linq;
-
-using System.Text;
-
+using System.Data;using System.Drawing;
+using System.Linq;using System.Text;
 using System.Threading.Tasks;
-
 using System.Windows.Forms;
-
 using System.Timers;
 
 
 
 namespace A_Dark_Room
-
-{
-
-    public partial class Form1 : Form
-
-    {
-
-        int sticks, food, iron, stone, gold, residents, furs, firestatus;
-
-        int carts, buildings, mines, farms, traps;
-
-        Boolean firstobjectivereached = false;
-
-        Boolean secondobjectivereached = false;
-
-        Boolean thirdobjectivereached = false;
-
-        Boolean fourthobjectivereached = false;
-
-        Boolean cartStatus = false;
-
-        int trapstatus = 0;
-
-        string fire;
+{    public partial class Form1 : Form
+    {    int sticks, food, iron, stone, gold, residents, furs, firestatus;
+    int carts, buildings, mines, farms, traps;
+    Boolean firstobjectivereached = false;    Boolean secondobjectivereached = false;
+    Boolean thirdobjectivereached = false;
+    Boolean fourthobjectivereached = false;
+    Boolean cartStatus = false;
+    int trapstatus = 0;
+    string fire;
 
 
 
-        private void BtnSellWood_Click(object sender, EventArgs e)
-
+private void BtnSellWood_Click(object sender, EventArgs e)
         {
-
             if (sticks >= 10)
-
             {
-
                 sticks -= 10;     //Reduces number of sticks by 10
-
                 gold += 1;    //Increases gold count by one
-
                 lstEvents.Items.Add("You sell ten wood and earn one gold.");  //Adds a line to the console
-
                 Renew();        //Runs the renew function, which makes sure all text Boxes match the values of variables
-
             }
-
-            else
-
-            { 
-
-                lstEvents.Items.Add("You lack enough sticks to complete this action!");  //Requires the user to have 10 sticks to complete this action
-
-            }
-
+            else            { 
+               lstEvents.Items.Add("You lack enough sticks to complete this action!");  //Requires the user to have 10 sticks to complete this action            }
         }
-
-
 
         private void BtnClear_Click(object sender, EventArgs e)
-
         {
-
             lstEvents.Items.Clear();
-
         }
 
-
-
         private void Button4_Click(object sender, EventArgs e)
-
         {
-
             if (gold > 24)
 
             {
-
                 gold -= 25;
-
                 traps += 1;
-
                 Renew();
-
                 trapCatchTimer.Interval = (60000 / traps);
-
                 if (thirdobjectivereached == false)
-
                 {
-
                     btnCheckTraps.Visible = true;
-
                     thirdobjectivereached = true;
-
                     trapCatchTimer.Start();
-
-
-
                 }
-
             }
-
         }
 
-
-
         private void trapCatchTimer_Tick(object sender, EventArgs e)
-
         {
-
             if (trapstatus < 6)
-
             { trapstatus += 1; }
-
         }
 
 
